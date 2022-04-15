@@ -10,4 +10,4 @@ I have coded this project using Jupyter Notebook by Anaconda. The following are 
 9. pyLDAvis (conda install -c conda-forge pyldavis)
 10. matplotlib (conda install -c conda-forge matplotlib)
 
-In the third cell, replace the * with the location of the downloaded omicron_tweets.csv file on your device.
+Download the omicron_tweets.csv data file from https://www.kaggle.com/shivamb/omicron-covid19-variant-tweets. In the third cell, replace the * with the location of the downloaded omicron_tweets.csv file on your device.
