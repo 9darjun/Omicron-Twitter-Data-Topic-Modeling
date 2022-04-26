@@ -1,0 +1,161 @@
+[System]
+Name='ML'
+Type='mamdani'
+Version=2.0
+NumInputs=6
+NumOutputs=5
+NumRules=45
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='temperature'
+Range=[-15 15]
+NumMFs=5
+MF1='verylow':'trapmf',[-21.75 -15.75 -14.25 -8.25]
+MF2='low':'trimf',[-15 -7.5 0]
+MF3='medium':'trimf',[-7.5 -1.11e-16 7.5]
+MF4='high':'trimf',[0 7.5 15]
+MF5='veryhigh':'trapmf',[9.592 15.59 17.09 23.09]
+
+[Input2]
+Name='flow'
+Range=[-1 1]
+NumMFs=3
+MF1='soft':'trapmf',[-1.75 -1.08 -0.917 0]
+MF2='normal':'trimf',[-0.394 0 0.391371340523883]
+MF3='hard':'trapmf',[-0.00308166409861321 0.89 1.07 1.74]
+
+[Input3]
+Name='Gas(Smoke/Vapour)'
+Range=[0 1000]
+NumMFs=5
+MF1='No':'gaussmf',[34.53 -40.65]
+MF2='low':'gaussmf',[103 257.5]
+MF3='medium':'gaussmf',[84.93 500]
+MF4='high':'gbellmf',[120 2.5 720]
+MF5='veryhigh':'gaussmf',[84.93 1000]
+
+[Input4]
+Name='time'
+Range=[0 10]
+NumMFs=2
+MF1='less_time':'trimf',[5.64 6.36 9.64]
+MF2='more_time':'trimf',[7 8 10]
+
+[Input5]
+Name='Outdoor_lighting'
+Range=[0 250]
+NumMFs=5
+MF1='veryless':'trapmf',[0 0 5.656 50.9]
+MF2='less':'trimf',[20 62.5 125]
+MF3='goood':'trimf',[50 125 187.5]
+MF4='high':'trimf',[125 187.5 250]
+MF5='veryhigh':'trapmf',[200 218.8 231.3 281.7]
+
+[Input6]
+Name='indoor_lighting'
+Range=[0 250]
+NumMFs=5
+MF1='verylow':'trapmf',[0 0 5.656 50.9]
+MF2='low':'trimf',[0 62.5 125]
+MF3='medium':'trimf',[62.5 125 187.5]
+MF4='high':'trimf',[125 187.5 250]
+MF5='very_high':'trimf',[187.5 250 312.5]
+
+[Output1]
+Name='cold'
+Range=[-1 1]
+NumMFs=5
+MF1='closesfast':'trimf',[-1 -0.8 -0.6]
+MF2='closes_slowly':'trimf',[-0.6 -0.4 -0.2]
+MF3='opens_slowly':'trimf',[0.2 0.4 0.6]
+MF4='normal':'trimf',[-0.2 0 0.2]
+MF5='opens_fast':'trimf',[0.6 0.8 1]
+
+[Output2]
+Name='hot'
+Range=[-1 1]
+NumMFs=5
+MF1='closesFast':'trimf',[-1 -0.8 -0.6]
+MF2='ClosesSlow':'trimf',[-0.6 -0.4 -0.2]
+MF3='Normal':'trimf',[-0.2 0 0.2]
+MF4='opensSlowly':'trimf',[0.2 0.4 0.6]
+MF5='opensFastly':'trimf',[0.6 0.8 1]
+
+[Output3]
+Name='Exhaust_fan'
+Range=[0 1800]
+NumMFs=5
+MF1='stop':'trapmf',[-80.51 -19.5 19.5 80.51]
+MF2='slow':'gaussmf',[93.43 390]
+MF3='medium':'gaussmf',[84.93 800]
+MF4='fast':'gaussmf',[84.93 1200]
+MF5='veryfast':'gaussmf',[89.18 1540]
+
+[Output4]
+Name='AC'
+Range=[0 1]
+NumMFs=2
+MF1='ON':'trimf',[0 0.25 0.5]
+MF2='OFF':'trimf',[0.5 0.75 1]
+
+[Output5]
+Name='lamps'
+Range=[0 250]
+NumMFs=5
+MF1='very_low':'trapmf',[-45 -5 5 45]
+MF2='low':'trimf',[50 75 100]
+MF3='medium':'trimf',[100 125 150]
+MF4='high':'trimf',[150 175 200]
+MF5='veryhigh':'trapmf',[201.7 249.3 264.3 336.7]
+
+[Rules]
+0 0 0 0 1 1, 0 0 0 0 5 (1) : 1
+0 0 0 0 1 2, 0 0 0 0 4 (1) : 1
+0 0 0 0 1 3, 0 0 0 0 3 (1) : 1
+0 0 0 0 1 4, 0 0 0 0 2 (1) : 1
+0 0 0 0 1 5, 0 0 0 0 1 (1) : 1
+0 0 0 0 2 1, 0 0 0 0 5 (1) : 1
+0 0 0 0 2 2, 0 0 0 0 4 (1) : 1
+0 0 0 0 2 3, 0 0 0 0 3 (1) : 1
+0 0 0 0 2 4, 0 0 0 0 2 (1) : 1
+0 0 0 0 2 5, 0 0 0 0 1 (1) : 1
+0 0 0 0 3 1, 0 0 0 0 5 (1) : 1
+0 0 0 0 3 2, 0 0 0 0 2 (1) : 1
+0 0 0 0 3 4, 0 0 0 0 2 (1) : 1
+0 0 0 0 3 5, 0 0 0 0 1 (1) : 1
+0 0 0 0 3 3, 0 0 0 0 3 (1) : 1
+0 0 0 0 4 1, 0 0 0 0 5 (1) : 1
+0 0 0 0 4 2, 0 0 0 0 4 (1) : 1
+1 1 0 0 0 0, 1 5 0 0 0 (1) : 1
+1 2 0 0 0 0, 2 5 0 0 0 (1) : 1
+1 3 0 0 0 0, 2 4 0 0 0 (1) : 1
+2 1 0 0 0 0, 1 5 0 0 0 (1) : 1
+2 2 0 0 0 0, 2 5 0 0 0 (1) : 1
+2 3 0 0 0 0, 2 4 0 0 0 (1) : 1
+3 1 0 0 0 0, 2 4 0 0 0 (1) : 1
+3 2 0 0 0 0, 4 3 0 0 0 (1) : 1
+3 3 0 0 0 0, 3 2 0 0 0 (1) : 1
+4 1 0 0 0 0, 3 4 0 0 0 (1) : 1
+4 2 0 0 0 0, 4 3 0 0 0 (1) : 1
+4 3 0 0 0 0, 3 2 0 0 0 (1) : 1
+5 1 0 0 0 0, 5 2 0 0 0 (1) : 1
+5 2 0 0 0 0, 5 2 0 0 0 (1) : 1
+5 3 0 0 0 0, 5 1 0 0 0 (1) : 1
+1 0 0 1 0 0, 0 0 0 1 0 (1) : 1
+1 0 0 2 0 0, 0 0 0 1 0 (1) : 1
+2 0 0 1 0 0, 0 0 0 1 0 (1) : 1
+2 0 0 2 0 0, 0 0 0 1 0 (1) : 1
+3 0 0 1 0 0, 0 0 0 1 0 (1) : 1
+3 0 0 2 0 0, 0 0 0 1 0 (1) : 1
+4 0 0 2 0 0, 0 0 0 1 0 (1) : 1
+5 0 0 2 0 0, 0 0 0 1 0 (1) : 1
+0 0 1 0 0 0, 0 0 1 0 0 (1) : 1
+0 0 2 0 0 0, 0 0 2 0 0 (1) : 1
+0 0 3 0 0 0, 0 0 3 0 0 (1) : 1
+0 0 4 0 0 0, 0 0 4 0 0 (1) : 1
+0 0 5 0 0 0, 0 0 5 0 0 (1) : 1
