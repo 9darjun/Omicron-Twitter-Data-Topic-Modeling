@@ -16,4 +16,4 @@ B) Download the omicron_tweets.csv data file from https://www.kaggle.com/shivamb
 
 C) In the third cell, replace the * with the location where "omicron_tweets.csv" file is downloaded onto your device.
 
-<embed>https://github.com/MallikarjunUF/Omicron-Twitter-Data-Topic-Modelling/blob/main/Final%20Report.pdf</embed>
+<embed = REPORT>https://github.com/MallikarjunUF/Omicron-Twitter-Data-Topic-Modelling/blob/main/Final%20Report.pdf</embed>
